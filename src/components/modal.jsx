@@ -8,7 +8,7 @@ import Btn from "./button";
 //   }
 
 // }
-export default function Modal() {
+const Modal = () => {
   return <>
     <Btn func={showModal} name=" + افزودن"></Btn>
     <div id="myModal" className="modal">
@@ -35,3 +35,4 @@ export default function Modal() {
   }
 
 }
+export default Modal;
