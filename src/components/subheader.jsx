@@ -1,6 +1,14 @@
 import React from "react";
-export default function Subheader(){
-    return<>
-    <div>Header</div>
+import UserContext from "../context/UserContext";
+
+export default function Subheader(props){
+    const {user,setUser} = React.useContext(UserContext)
+    return (
+    <>
+    <div>
+         <h6>{props.test} {user.name}
+         </h6>
+    </div>
     </>
+    )
 }

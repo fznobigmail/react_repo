@@ -1,38 +1,23 @@
 import React from "react";
 import "../styles.css";
-import Btn from "./button";
+import Btn from "./button"
+// import  UserContext  from "../context/UserContext";
 
-// window.onClick = function(event) {
-//   if (event.target === modal) {
-//     modal.style.display = "none";
-//   }
 
-// }
-const Modal = () => {
+const Modal = (props) => {
+  // const {user,setUser} = React.useContext(UserContext)
   return <>
-    <Btn func={showModal} name=" + افزودن"></Btn>
-    <div id="myModal" className="modal">
+    <div id="myModal" className= {`modal ${props.show?'show':''} ${props.size}`}>
       <div className="modal-content">
-        <p>ساخت دسته بندی جدید</p>
-        <form>
-          <input></input>
-          <hr></hr>
-          <Btn name="تایید"></Btn>
-          <Btn name="انصراف" func={hideModal}></Btn>
-        </form>
+        {props.children}
+          <Btn name="تایید" class="sm"></Btn>
+          <Btn name="انصراف" func={props.onClose} class="md"></Btn>
+        
       </div>
     </div>
   </>
 
-  function showModal(event) {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
-
-  }
-  function hideModal(event) {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  }
-
+  
+  
 }
 export default Modal;
